@@ -218,12 +218,12 @@ class MVC_model(nn.Module):
             Ut_list.append(Ut)
 
             #----------------reconstruct the anchor graph-----------------
-            dists = torch.cdist(embedding_sample, embedding_anchors, p=2)
-            dists_sq = torch.pow(dists, 2)
-            sim = torch.exp(torch.div(-dists_sq, (2.0 * sigma ** 2)))
-            row_sum = torch.sum(sim, dim=1, keepdim=True) + 1e-10
-            recon_b = torch.div(sim, row_sum)
-            recon_b_list.append(recon_b)
+            # dists = torch.cdist(embedding_sample, embedding_anchors, p=2)
+            # dists_sq = torch.pow(dists, 2)
+            # sim = torch.exp(torch.div(-dists_sq, (2.0 * sigma ** 2)))
+            # row_sum = torch.sum(sim, dim=1, keepdim=True) + 1e-10
+            # recon_b = torch.div(sim, row_sum)
+            # recon_b_list.append(recon_b)
 
             #--------------------compute the view-shared and view-specific anchor graph-------------------
             ft=distance2(Ut_list[v].t(),anchor_embedding_list[v].t(),square=True)
